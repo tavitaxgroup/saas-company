@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SISBIO | Signal-Direct Western Blot Imager",
+  title: "SISBIO | Signal-Direct Imager and Bioproduction Products",
   description:
-    "Signal-Direct Imager is SISBIO's compact, high-sensitivity chemiluminescence Western blot imaging platform for protein research teams."
+    "Explore SISBIO's Signal-Direct chemiluminescence Western blot imager, Max-One software, technical specifications, and bioproduction media and feed products."
 };
 
 export default function RootLayout({

@@ -1,17 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import InquiryForm from "../components/InquiryForm";
+import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
-
-const navItems = [
-  { label: "Overview", href: "/#signal-direct" },
-  { label: "Multi-User Labs", href: "#multi-user" },
-  { label: "Max-One", href: "#max-one" },
-  { label: "Specs", href: "#specs" },
-  { label: "Support", href: "/#support" },
-  { label: "FAQ", href: "/#faq" },
-  { label: "Contact Us", href: "#contact" }
-];
+import navItems from "../navigation";
 
 const workflowPoints = [
   {
@@ -54,14 +45,14 @@ const detailedSpecs = [
   ["Weight", "Approximately 4 kg (8.8 lb)"],
   ["Power", "100-240 V, 50-60 Hz"],
   ["Light Source", "Chemiluminescence, epi LEDs (R/G/B)"],
-  ["Operation Temperature", "15°C to 35°C"],
+  ["Operation Temperature", "15 degrees C to 35 degrees C"],
   ["Operating Humidity", "35% to 55% relative humidity, noncondensing"]
 ];
 
 export default function SignalDirectImagerPage() {
   return (
     <main>
-      <SiteHeader navItems={navItems} ctaHref="#contact" />
+      <SiteHeader navItems={navItems} ctaHref="/contact" />
 
       <section className="detail-hero">
         <Image
@@ -146,6 +137,9 @@ export default function SignalDirectImagerPage() {
               <span key={feature}>{feature}</span>
             ))}
           </div>
+          <Link className="text-link" href="/software">
+            View full software workflow
+          </Link>
         </div>
         <div className="detail-band-media">
           <Image
@@ -194,38 +188,7 @@ export default function SignalDirectImagerPage() {
         </div>
       </section>
 
-      <section id="contact" className="section inquiry-section">
-        <div className="inquiry-copy">
-          <p className="eyebrow teal">Product Inquiry</p>
-          <h2>Discuss Signal-Direct with SISBIO.</h2>
-          <p className="lead">
-            Send your application, documentation, quotation, or technical consultation
-            request. This demo form opens an email draft for review before sending.
-          </p>
-        </div>
-        <InquiryForm />
-      </section>
-
-      <footer className="footer">
-        <div>
-          <Image src="/assets/logo-sisbio.webp" alt="SISBIO" width={100} height={70} />
-          <p>
-            Signal-Direct Imager is for research use only. Not for use in diagnostic
-            procedures.
-          </p>
-        </div>
-        <address>
-          <strong>SisBio Limited</strong>
-          <span>4 F., No. 12, Ln. 345, Yangguang St., Neihu Dist.</span>
-          <span>Taipei City 114713, Taiwan (R.O.C.)</span>
-          <span>Postal code 114713</span>
-          <a href="mailto:jack.lou@sisbio.com.tw">jack.lou@sisbio.com.tw</a>
-          <a href="mailto:sales@sisbio.com.tw">sales@sisbio.com.tw</a>
-          <a href="mailto:service@sisbio.com.tw">service@sisbio.com.tw</a>
-          <a href="https://www.sisbio.com.tw/">www.sisbio.com.tw</a>
-          <a href="tel:+886939176425">886-939 176 425</a>
-        </address>
-      </footer>
+      <SiteFooter note="Signal-Direct Imager is for research use only. Not for use in diagnostic procedures." />
     </main>
   );
 }

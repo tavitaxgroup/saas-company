@@ -1,324 +1,474 @@
-# Design System Inspired by Arise Biotech
-
-## 1. Visual Theme & Atmosphere
-
-Arise Biotech's design system embodies scientific precision and biotech sophistication through a clean, modern aesthetic that balances professionalism with approachability. The visual identity leverages calming aquatic tones paired with deep neutrals to convey trust, expertise, and innovation in life sciences. Minimal, breathable layouts emphasize the clarity and rigor of biotechnological research, while subtle interactions and refined typography create an engaging experience that feels both accessible and authoritative. The design celebrates the intersection of humanity and science—evident in hero imagery—while maintaining a corporate, forward-thinking presence suitable for global OEM/ODM partnerships.
-
-**Key Characteristics**
-- Clean, minimalist aesthetic with generous whitespace
-- Aquatic and professional color palette inspiring trust and scientific credibility
-- Refined typography hierarchy supporting content hierarchy and readability
-- Circular, pill-shaped interactive elements for modern, approachable interactions
-- Emphasis on high-quality imagery and product-focused storytelling
-- Neutral, tech-forward visual language with strategic color accents
-- Laboratory precision reflected in consistent spacing and alignment
-
-## 2. Color Palette & Roles
-
-### Primary
-- **Teal Accent** (`#65C8C6`): Primary brand color for CTAs, highlights, navigation elements, and key UI components. Evokes trust, innovation, and life science applications. Most frequently used throughout the system (22 instances).
-- **Sky Blue** (`#3F99DF`): Secondary primary accent for visual depth and scientific association. Used for complementary highlights and secondary interactions (8 instances).
-
-### Interactive
-- **Teal Button Fill** (`#65C8C6`): Solid background for primary action buttons and confirmations.
-- **Transparent Button Border** (`rgba(255, 255, 255, 0.3)`): Subtle border on ghost/outline buttons for minimal visual weight on dark or image backgrounds.
-
-### Neutral Scale
-- **Pure Black** (`#000000`): Primary text, heavy UI elements, and default button states. Highest contrast and most frequent color in the system (740 instances).
-- **Dark Charcoal** (`#545454`): Secondary text and reduced emphasis (28 instances).
-- **Medium Charcoal** (`#555555`): Tertiary text and subtle UI elements (10 instances).
-- **Deep Gray** (`#525252`): Body text and supporting content (6 instances).
-- **Dark Gray Accent** (`#3B3B3B`): UI borders and dividers (6 instances).
-- **Darker Gray** (`#343434`): Subtle background tints (4 instances).
-- **Darkest Gray** (`#303030`): Navigation backgrounds and footer areas (4 instances).
-
-### Surface & Borders
-- **Pure White** (`#FFFFFF`): Primary background, card surfaces, and text on dark backgrounds (186 instances).
-- **White Border** (`rgba(255, 255, 255, 0.3)`): Subtle borders on buttons and elements over image or dark backgrounds.
-
-## 3. Typography Rules
-
-### Font Family
-- **Primary Display & Body**: Poppins, sans-serif (fallback stack: `-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`)
-- **Secondary (TC/CJK content)**: Noto Sans TC (weights: 300, 400, 500, 700)
-- **Button/Control Text**: Arial, sans-serif (fallback stack: `Helvetica, sans-serif`)
-
-### Hierarchy
-
-| Role | Font | Size | Weight | Line Height | Letter Spacing | Notes |
-|------|------|------|--------|-------------|----------------|-------|
-| Display / H1 | Poppins | 45px | 500 | 54px | Normal | Hero headlines and major section titles |
-| Heading / H2 | Poppins | 40px | 500 | 56px | Normal | Secondary section headers |
-| Subheading / H3 | Poppins | 14px | 700 | Normal | Normal | Category labels and tertiary headers |
-| Body / Paragraph | Poppins | 18px | 300 | 30px | Normal | Main content and descriptions |
-| Caption / Small Text | Poppins | 14px | 400 | Normal | Normal | Supporting text, metadata, labels |
-| Button Text | Arial | 16px | 400 | Normal | Normal | Interactive button labels |
-
-### Principles
-- Weight variation (300–700) creates clear visual hierarchy while maintaining brand cohesion
-- Line-height exceeds font size for body text, enhancing readability and reducing density
-- Poppins provides modern, friendly tone suitable for biotech; Noto Sans TC ensures accessibility for CJK audiences
-- All-caps or increased letter-spacing reserved for discrete UI components (buttons, labels)
-- Caption text (14px, weight 400) balances legibility with minimalism for supplementary information
-
-## 4. Component Stylings
-
-### Buttons
-
-#### Primary Button (Solid Teal)
-- **Background**: `#65C8C6`
-- **Text Color**: `#000000`
-- **Font**: Arial, `16px`, weight 400
-- **Padding**: `0px` (height-driven)
-- **Height**: `50px`
-- **Width**: `50px` (or flexible `auto`)
-- **Border Radius**: `0px` (square) or `99px` (pill, depending on context)
-- **Border**: None
-- **Hover State**: Opacity `0.9`, subtle shadow or slight scale increase
-- **Active State**: Opacity `0.85`
-
-#### Secondary Button (Outline)
-- **Background**: Transparent (`rgba(0, 0, 0, 0)`)
-- **Text Color**: `#000000` (or `#FFFFFF` on dark backgrounds)
-- **Font**: Poppins, `14px`, weight 400
-- **Padding**: `0px 6px 0px 0px` (icon-inclusive)
-- **Height**: `45px`
-- **Width**: Auto or `210px`
-- **Border Radius**: `99px`
-- **Border**: `1px solid rgba(255, 255, 255, 0.3)`
-- **Hover State**: Border opacity increases to `0.6`
-- **Active State**: Background tint `rgba(101, 200, 198, 0.1)`
-
-#### Ghost Button (Minimal)
-- **Background**: Transparent
-- **Text Color**: `#000000`
-- **Font**: Poppins, `14px`, weight 400
-- **Padding**: `0px`
-- **Height**: `45px`
-- **Width**: Auto
-- **Border Radius**: `99px`
-- **Border**: `1px solid rgba(255, 255, 255, 0.3)`
-- **Hover State**: Text color shifts to `#65C8C6`, border becomes solid `#65C8C6`
-
-### Cards & Containers
-
-#### Content Card
-- **Background**: `#FFFFFF`
-- **Border Radius**: `10px`
-- **Padding**: `24px` to `40px` (context-dependent)
-- **Border**: `1px solid #E5E5E5` (inferred light border for subtle definition)
-- **Box Shadow**: None (minimal elevation) or `0px 2px 8px rgba(0, 0, 0, 0.08)` (subtle lift)
-- **Hover State**: Shadow increases to `0px 4px 12px rgba(0, 0, 0, 0.12)`, slight scale or background shift
-
-#### Image Card
-- **Border Radius**: `10px`
-- **Overflow**: Hidden
-- **Aspect Ratio**: Flexible (product/portfolio images)
-- **Padding**: `0px` (images flush to edges)
-- **Hover State**: Scale `1.02` or opacity overlay `rgba(101, 200, 198, 0.1)`
-
-### Inputs & Forms
-
-#### Text Input
-- **Background**: `#FFFFFF`
-- **Text Color**: `#000000`
-- **Font**: Poppins, `14px`, weight 400
-- **Padding**: `12px 16px`
-- **Height**: `44px`
-- **Border Radius**: `6px`
-- **Border**: `1px solid #D0D0D0`
-- **Focus State**: Border color `#65C8C6`, box-shadow `0px 0px 0px 3px rgba(101, 200, 198, 0.2)`
-- **Error State**: Border color `#E74C3C`, box-shadow `0px 0px 0px 3px rgba(231, 76, 60, 0.1)`
-
-#### Select / Dropdown
-- **Background**: `#FFFFFF`
-- **Text Color**: `#000000`
-- **Font**: Poppins, `14px`, weight 400
-- **Padding**: `12px 16px`
-- **Height**: `44px`
-- **Border Radius**: `6px`
-- **Border**: `1px solid #D0D0D0`
-- **Caret Color**: `#65C8C6`
-- **Hover State**: Border color `#A0A0A0`
-
-### Navigation
-
-#### Header Navigation
-- **Background**: `#65C8C6` (full-width header bar)
-- **Text Color**: `#FFFFFF` (on teal background)
-- **Font**: Poppins, `14px`, weight 400
-- **Padding**: `16px 24px`
-- **Height**: `60px` (inferred)
-- **Border Radius**: `0px`
-- **Border**: None
-- **Hover State**: Text color remains `#FFFFFF`, background fades slightly or underline appears in secondary accent
-
-#### Navigation Link (Active)
-- **Text Color**: `#FFFFFF`
-- **Font**: Poppins, `14px`, weight 400, with underline or bottom border `2px solid #FFFFFF`
-
-#### Logo
-- **Font**: Poppins, display weight
-- **Color**: `#FFFFFF` on teal background, or `#000000` on light backgrounds
-- **Height**: `40px` (inferred)
-- **Width**: Auto
-
-### Links
-
-#### Text Link (Inline)
-- **Text Color**: `#65C8C6`
-- **Font**: Poppins, `14px`, weight 400
-- **Text Decoration**: Underline or inherit
-- **Hover State**: Color `#3F99DF`, text-decoration underline if not already
-- **Active State**: Color `#55A8A6`
-
-#### Icon Link / CTA Circle
-- **Background**: `rgba(0, 0, 0, 0)` (transparent)
-- **Border**: `1px solid rgba(255, 255, 255, 0.3)` or `#65C8C6`
-- **Width**: `52px`
-- **Height**: `52px`
-- **Border Radius**: `99px`
-- **Icon Color**: `#FFFFFF` or `#65C8C6`
-- **Font Size**: `24px` (for arrow icon)
-- **Hover State**: Background `rgba(101, 200, 198, 0.1)`, border color `#65C8C6`, icon color brightens
-
-## 5. Layout Principles
-
-### Spacing System
-
-**Base Unit**: `4px`
-
-**Spacing Scale**: `4px, 8px, 12px, 16px, 20px, 24px, 28px, 32px, 36px, 40px, 48px, 60px`
-
-**Context Usage**:
-- **4px–8px**: Micro interactions, icon spacing, tight component gaps
-- **12px–16px**: Default padding within buttons, form fields, small cards
-- **20px–24px**: Section internal padding, moderate spacing between related elements
-- **28px–32px**: Padding within card containers and larger components
-- **36px–40px**: Vertical spacing between major sections, hero padding
-- **48px**: Large section gaps, layout breakpoints
-- **60px**: Hero section padding, maximum breathing room between distinct sections
-
-### Grid & Container
-
-- **Max Container Width**: `1200px` (inferred from desktop layout; no explicit max-width extracted, but industry standard)
-- **Column Strategy**: 12-column grid for desktop, 6-column for tablet, 1-column for mobile
-- **Gutter Width**: `16px` to `24px` between columns
-- **Section Padding**: `40px–60px` vertical, `24px–40px` horizontal (symmetric or asymmetric per design intent)
-
-### Whitespace Philosophy
-
-The design embraces generous whitespace to emphasize clarity and reduce cognitive load. Content is centered on lighter backgrounds; imagery bleeds edge-to-edge for immersion. Vertical rhythm maintained through consistent spacing scale, creating calm, hierarchical layouts. Sections breathe independently; no cramping of related elements. Whitespace acts as a design element itself, conveying premium quality and scientific rigor.
-
-### Border Radius Scale
-
-- **Sharp** (`0px`): Navigation headers, buttons (context-dependent), hero sections
-- **Subtle** (`6px`): Form inputs, small interactive elements, minimal softness
-- **Moderate** (`10px`): Image cards, content containers, standard component roundness
-- **Full Radius / Pill** (`99px`): Icon buttons, small CTAs, circular badges, call-to-action links
-
-## 6. Depth & Elevation
-
-| Level | Treatment | Use |
-|-------|-----------|-----|
-| Flat (0) | No shadow, `box-shadow: none` | Navigation, headers, body text, flat UI sections |
-| Subtle (1) | `box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08)` | Default cards, hover states on secondary elements |
-| Raised (2) | `box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12)` | Hovered cards, modal backgrounds, featured content |
-| Elevated (3) | `box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.16)` | Modals, popovers, sticky headers on scroll |
-| Deep (4) | `box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.20)` | Fullscreen overlays, floating action buttons |
-
-**Shadow Philosophy**: Arise Biotech employs minimal, naturalistic shadows to maintain visual clarity while providing subtle depth. Shadows are soft and desaturated, never harsh or oversaturated. The system avoids stacking multiple shadows; each elevation level uses a single shadow value. Shadow increases progressively with interaction (hover, active, focus states) to communicate interactivity without visual clutter. The teal and blue accent colors do not generate colored shadows; all shadows remain neutral black with opacity variation.
-
-## 7. Do's and Don'ts
-
-### Do
-- **Use Poppins for all body, heading, and UI text** to maintain brand consistency and modern readability.
-- **Apply teal (`#65C8C6`) sparingly as a focal accent color**, reserving it for primary CTAs, navigation highlights, and key interactive elements.
-- **Maintain minimum `44px` touch targets** for buttons and interactive elements on mobile to meet accessibility standards.
-- **Layer whitespace intentionally**—pair tight (12–16px) spacing within components with loose (40–60px) spacing between sections.
-- **Use pill-shaped buttons (`99px` border-radius) for secondary and ghost CTAs** to signal approachability; reserve sharp corners (`0px`) for structural elements like headers.
-- **Employ image cards with `10px` border-radius** to soften product photography while maintaining professional tone.
-- **Leverage the neutral scale (`#545454`, `#555555`) for secondary and tertiary text** to reduce visual weight and hierarchy without losing readability.
-- **Apply consistent `16px` padding horizontally** within containers and sections for balanced margins.
-- **Use `rgba(255, 255, 255, 0.3)` borders on overlays** for subtle definition without harsh contrast.
-- **Implement hover states that increase border opacity or add subtle shadows** rather than drastic color shifts.
-
-### Don't
-- **Avoid heavy or oversaturated shadows**—maintain subtle, naturalistic elevation with maximum `rgba(0, 0, 0, 0.20)`.
-- **Never use the secondary blue (`#3F99DF`) as a primary CTA color**—reserve it for complementary highlights and data visualization.
-- **Do not mix Poppins, Arial, and Noto Sans TC arbitrarily**—Poppins for body/UI, Noto Sans TC for CJK content, Arial reserved for button text only.
-- **Avoid button heights below `44px` or widths below `50px`** (excluding icon-only buttons) to maintain touch accessibility.
-- **Never center-align large blocks of body text**—left-align for readability and scannability.
-- **Do not layer multiple shadows or use colored shadows** (e.g., blue or teal); stick to neutral black shadows with opacity.
-- **Avoid cluttering the header with more than 5–6 navigation items**; use dropdowns or hamburger menus for secondary nav.
-- **Never use pure white text on teal backgrounds without ensuring contrast ratio ≥ 4.5:1** for WCAG AA compliance.
-- **Do not shrink padding below `12px` inside buttons or form fields**—maintain minimum `12px` internal padding for comfort.
-- **Avoid abrupt color transitions in hover/active states**—use opacity shifts or subtle color blending (e.g., `#65C8C6` → `#55A8A6`) for smooth interaction feedback.
-
-## 8. Responsive Behavior
-
-### Breakpoints
-
-| Breakpoint | Width | Device | Key Changes |
-|------------|-------|--------|-------------|
-| Mobile | `320px–480px` | Phone (portrait) | Single column, `16px` horizontal padding, `24px–32px` section padding, `32px` h1, full-width buttons, stacked navigation |
-| Tablet Small | `480px–768px` | Phone (landscape) / Tablet | 2-column grid, `20px` horizontal padding, `32px–40px` section padding, `36px` h1, buttons `auto` or `100%` width in forms |
-| Tablet | `768px–1024px` | Tablet (portrait) | 6-column grid, `24px` horizontal padding, `40px` section padding, `40px` h1, multi-column card layouts, sidebar navigation |
-| Desktop | `1024px–1440px` | Desktop / Laptop | 12-column grid, `40px–60px` horizontal padding, `48px–60px` section padding, `45px` h1 and h2, multi-row grid layouts, full horizontal navigation |
-| Desktop Large | `1440px+` | Large monitor / TV | Container max-width `1200px`, centered layout, increased `60px` section padding, generous whitespace margins |
-
-### Touch Targets
-
-- **Minimum Size**: `44px × 44px` (iOS/Android standard)
-- **Recommended Minimum**: `48px × 48px` for primary actions
-- **Spacing Between Targets**: `8px–12px` minimum to prevent accidental activation
-- **Icon-Only Buttons**: Maintain `44px` minimum; provide adequate internal padding around icon
-- **Form Fields**: Height `44px` minimum; width `100%` on mobile, `auto` on desktop
-
-### Collapsing Strategy
-
-- **Header Navigation**: Collapses to hamburger menu below `768px`; full horizontal nav on tablet and above
-- **Multi-Column Grids**: 4-column card grid on desktop → 2-column on tablet → 1-column on mobile
-- **Section Padding**: `60px` (desktop) → `40px` (tablet) → `24px` (mobile) for responsive breathing room
-- **Font Sizes**: H1 remains `45px` on desktop and tablet; reduces to `32px–36px` on mobile for fit
-- **Button Width**: `auto` / flexible on desktop → `100%` on mobile within forms, fixed width (`50px`) for icon buttons across all sizes
-- **Sidebar / Auxiliary Content**: Moves below main content on mobile; appears beside on tablet+
-- **Image Cards**: 4-column grid → 2-column → 1-column; aspect ratio preserved via CSS `aspect-ratio` or padding-bottom hack
-- **Whitespace**: Reduced but not eliminated; maintain `12px–16px` minimum gutters and section margins on mobile
-
-## 9. Agent Prompt Guide
-
-### Quick Color Reference
-
-- **Primary CTA / Brand**: Teal (`#65C8C6`)
-- **Secondary Accent**: Sky Blue (`#3F99DF`)
-- **Primary Text / Headings**: Pure Black (`#000000`)
-- **Secondary Text**: Dark Charcoal (`#545454`)
-- **Background / Surface**: Pure White (`#FFFFFF`)
-- **Navigation Header**: Teal (`#65C8C6`)
-- **Navigation Text**: White (`#FFFFFF`)
-- **Button Border (Overlay)**: `rgba(255, 255, 255, 0.3)`
-- **Shadow Color**: Black with opacity (`rgba(0, 0, 0, 0.08–0.20)`)
-- **Link Color**: Teal (`#65C8C6`); hover → Sky Blue (`#3F99DF`)
-
-### Iteration Guide
-
-1. **Color Accent Rule**: All primary interactive elements and focal points use `#65C8C6` (teal). Reserve `#3F99DF` (sky blue) for secondary highlights and complementary accents. Never mix as primary CTAs.
-
-2. **Typography Base**: Set all body, heading, and UI text in Poppins; weights 300–500 for hierarchy. Use Poppins `18px` weight 300 for body paragraphs with `30px` line-height. Use Poppins `14px` weight 400 for captions and labels. Buttons use Arial `16px` weight 400.
-
-3. **Button Construction**: Primary buttons are `50px` height, teal background (`#65C8C6`), `16px` Arial, no border. Secondary/ghost buttons are `45px` height, transparent background, `1px` white border (`rgba(255, 255, 255, 0.3)`), `14px` Poppins, pill-shaped (`99px` border-radius).
-
-4. **Spacing Consistency**: Follow the scale `4px, 8px, 12px, 16px, 20px, 24px, 28px, 32px, 36px, 40px, 48px, 60px`. Never use arbitrary values. Minimum internal padding is `12px`; minimum section gap is `40px` (desktop), `24px` (mobile).
-
-5. **Border Radius Simplicity**: Use `0px` for structural elements (headers, full-width sections); `10px` for image cards and containers; `99px` (pill) for icon buttons and small CTAs.
-
-6. **Shadow Depth**: Apply `0px 2px 8px rgba(0, 0, 0, 0.08)` for subtle cards (default), increase to `0px 4px 12px rgba(0, 0, 0, 0.12)` on hover. Never use colored shadows.
-
-7. **Neutral Text Hierarchy**: Black (`#000000`) for primary text and headings; `#545454` for secondary; `#555555` and below for tertiary. No text below `#303030` for legibility.
-
-8. **Mobile-First Adaptation**: Design assumes 12-column desktop grid. Below `768px`, shift to single column. Navigation collapses to hamburger. Buttons full-width in forms. Maintain `44px` minimum touch targets.
-
-9. **Interactive Feedback**: Hover states increase shadow or opacity (e.g., border opacity `0.3` → `0.6`), never harsh color flips. Active states reduce brightness slightly (opacity `0.85–0.90`). Focus states add `3px` colored outline using accent color with `0.2` opacity.
-
-10. **Accessibility Mandate**: Ensure all text has contrast ≥ 4.5:1 (WCAG AA). Use semantic HTML (`<button>`, `<a>`, `<nav>`, etc.). Maintain focus indicators visible on all interactive elements. Buttons and links are keyboard accessible; tab order logical top-to-bottom, left-to-right.
+# SISBIO Website Design System
+
+Official token-driven UI guidance for the SISBIO marketing site, adapted from Arise Biotech's clean life science OEM/ODM visual language and the current project implementation.
+
+## Context and Goals
+
+Design intent: create a precise, calm, product-forward life science website that feels credible for laboratory buyers while remaining fast to implement and easy to maintain.
+
+This project is a SISBIO product and inquiry website. The design direction is informed by Arise Biotech's "Trusted Life Science Instrument OEM/ODM Partner" positioning, but the implemented experience must support SISBIO content, Signal-Direct product storytelling, bioproduction product cards, and a detailed contact workflow.
+
+The current implementation shows these visual anchors:
+- Full-bleed photographic heroes with dark overlays and white text.
+- Fixed dark translucent navigation with 2 navigation surfaces: desktop nav and mobile nav.
+- Poppins-led typography with Noto Sans TC and Microsoft JhengHei fallbacks.
+- Teal accent for primary actions, highlights, bullets, form focus, and selected states.
+- Square product cards, specification tables, compact contact forms, and restrained shadows.
+- Current project density: 28 links, 2 list-like clusters, 3 buttons, 2 navigation surfaces, and 15 cards on the landing page.
+- Arise reference density from provided diagnostics: links 88, lists 14, buttons 4, navigation 2.
+
+Primary goals:
+- Teams must use semantic tokens instead of one-off styling.
+- Teams must preserve WCAG 2.2 AA accessibility.
+- Teams must keep marketing pages scannable, product-focused, and implementation-ready.
+- Teams should prefer system consistency over local visual exceptions.
+
+## Design Tokens and Foundations
+
+### Core Token Source
+
+The CSS source of truth must live in `app/globals.css` under `:root`. Component guidance must reference semantic tokens, not raw values.
+
+| Token | Value | Role |
+|---|---:|---|
+| `--color-surface-base` | `#000000` | Dark overlays, dark header treatment, inverse blocks |
+| `--color-surface-page` | `#ffffff` | Main page background and card surface |
+| `--color-surface-soft` | `#f5f8f8` | Soft section background, product image beds, contact info panel |
+| `--color-surface-raised` | `#65c8c6` | Primary teal accent and CTA fill |
+| `--color-text-primary` | `#000000` | Primary headings and body on light surfaces |
+| `--color-text-secondary` | `#ffffff` | Text on dark image overlays |
+| `--color-text-tertiary` | `#545454` | Supporting body copy and metadata |
+| `--color-text-inverse` | `#3f99df` | Secondary blue accent, secondary data or visual emphasis |
+| `--color-border-subtle` | `#e5e8e8` | Structural borders and table dividers |
+| `--font-family-primary` | Poppins, Noto Sans TC, Verdana, Microsoft JhengHei, sans-serif | All body, heading, and UI text |
+| `--font-size-xs` | `14px` | Labels, nav links, captions |
+| `--font-size-sm` | `15px` | Small headings and mobile nav links |
+| `--font-size-md` | `16px` | Buttons and compact controls |
+| `--font-size-lg` | `17px` | Reserved intermediate text size |
+| `--font-size-xl` | `18px` | Lead body copy |
+| `--font-size-2xl` | `20px` | Secondary compact headings |
+| `--font-size-3xl` | `22px` | Reserved section subheading |
+| `--font-size-4xl` | `24px` | Compact display text |
+| `--space-1` | `4px` | Micro gaps |
+| `--space-2` | `6px` | Tight inline gaps |
+| `--space-3` | `9px` | Compact control gaps |
+| `--space-4` | `10px` | Header internal padding |
+| `--space-5` | `12px` | Minimum component inner padding |
+| `--space-6` | `15px` | Compact field rhythm |
+| `--space-7` | `27px` | Medium vertical rhythm |
+| `--space-8` | `35px` | Large local spacing |
+| `--radius-xs` | `50px` | Circular icon buttons and brand hit area |
+| `--radius-sm` | `99px` | Pill CTAs |
+| `--motion-duration-instant` | `200ms` | Hover, focus, and menu icon transitions |
+| `--motion-duration-fast` | `400ms` | Section or carousel interactions |
+| `--motion-duration-normal` | `500ms` | Hero slide fade |
+
+### Semantic Aliases
+
+Implementation should use these aliases for readability:
+- `--teal` maps to `--color-surface-raised`.
+- `--teal-dark` should be used only for text accents that need stronger contrast than `--teal`.
+- `--blue` maps to `--color-text-inverse`.
+- `--black` maps to `--color-text-primary`.
+- `--charcoal` maps to `--color-text-tertiary`.
+- `--line` maps to `--color-border-subtle`.
+- `--soft` maps to `--color-surface-soft`.
+- `--white` maps to `--color-surface-page`.
+- `--shadow-1` and `--shadow-2` must remain neutral shadows.
+
+### Typography
+
+Typography must use the primary font stack for all website text. Buttons may use Arial/Helvetica only when matching the existing CTA pattern.
+
+| Role | Token or Rule | Weight | Line Height | Usage |
+|---|---|---:|---:|---|
+| Hero H1 | `clamp(38px, 4.5vw, 58px)` | 500 | 1.12 | First viewport product promise |
+| Section H2 | `clamp(30px, 3.4vw, 42px)` | 500 | 1.24 | Main section headings |
+| Card H3 | `--font-size-xl` or `18px` | 600 | 1.35 | Product and stat card titles |
+| Body Lead | `--font-size-xl` | 300 | 30px | High-emphasis paragraph copy |
+| Body Default | `--font-size-xs` to `--font-size-md` | 400 | 1.6 to 1.7 | Cards, tables, forms, captions |
+| Eyebrow | `--font-size-xs` | 700 | normal | Section category labels |
+
+Rules:
+- Text must use `letter-spacing: 0`.
+- Body text must not be center-aligned in long paragraphs.
+- Long headings must wrap naturally and must not overlap adjacent content.
+- CJK or Vietnamese copy must use the same stack and must not force a separate local font rule.
+
+### Layout and Breakpoints
+
+Containers must use `width: min(1200px, calc(100% - 32px))` unless a full-bleed visual section is required.
+
+Responsive rules:
+- Desktop should use two, three, four, or seven-column grids only when content remains readable.
+- Below 900px, major split layouts must collapse to one column and product grids should reduce to two columns.
+- Below 620px, product grids, stats, workflow strips, and forms must collapse to one column.
+- Touch targets must be at least 44px by 44px for navigation, buttons, carousel controls, and mobile menu controls.
+- Fixed-format elements must define stable dimensions with `min-height`, `aspect-ratio`, or grid constraints.
+
+### State Contract for All Components
+
+Every component must define these states even when some are non-interactive:
+- Default: visible, stable, and token-based.
+- Hover: pointer users should receive a subtle visual affordance.
+- Focus-visible: keyboard users must receive a visible outline or equivalent indicator.
+- Active: pressed or selected state must be distinguishable from hover.
+- Disabled: unavailable controls must not be focusable unless required for explanation, and must show reduced emphasis.
+- Loading: async content must reserve layout space and expose status text or `aria-busy`.
+- Error: failed content or invalid input must show an error message, not color alone.
+
+## Component-Level Rules
+
+### Header Navigation
+
+Anatomy:
+- Header must contain logo link, desktop nav, CTA link, mobile menu button, and mobile nav.
+- Desktop nav must use semantic `<nav aria-label="Primary navigation">`.
+- Mobile nav must use a separate `<nav aria-label="Mobile navigation">`.
+
+Variants:
+- Default fixed header must use dark translucent surface and inverse text over hero imagery.
+- Internal pages should reuse the same header unless a page has no hero image.
+
+States:
+- Default must keep logo, nav, and CTA visible above hero content.
+- Hover should underline desktop nav links and lift CTA only subtly.
+- Focus-visible must show a visible outline on logo, links, CTA, and menu button.
+- Active must maintain current route clarity through URL and optional underline.
+- Disabled nav items must not be rendered as links.
+- Loading must not hide the header; use stable skeleton only if nav data is delayed.
+- Error must fall back to Home, Contact, and Product links.
+
+Behavior:
+- Keyboard: Tab order must be logo, nav links, CTA, menu button on desktop; menu button must toggle mobile nav with Enter and Space.
+- Pointer: click on any nav item must navigate or scroll to a valid target.
+- Touch: menu button must be at least 44px square; mobile nav items must have at least 48px height.
+- Edge cases: more than 6 primary links should move secondary items into the mobile menu or footer, not squeeze desktop nav.
+
+### Hero Sections
+
+Anatomy:
+- Hero must include background media, overlay, eyebrow, H1, support copy, and one or two actions.
+
+Variants:
+- Landing hero uses full-viewport visual carousel.
+- Detail and contact heroes use shorter full-bleed photographic sections.
+
+States:
+- Default must keep foreground text readable over imagery.
+- Hover should only affect hero controls and links.
+- Focus-visible must be visible on all hero links and carousel controls.
+- Active controls must show reduced opacity or pressed feedback.
+- Disabled carousel controls must be hidden or marked disabled when only one slide exists.
+- Loading must show a stable image area and preserve text layout.
+- Error must replace failed imagery with `--color-surface-base` or `--color-surface-soft`, never a broken image icon.
+
+Behavior:
+- Keyboard: carousel controls must be reachable and operable by Enter and Space.
+- Pointer: arrows must be large enough to target and must not cover primary text.
+- Touch: arrows should move below content on small screens or remain clear of CTA hit areas.
+- Edge cases: long H1 copy must wrap within the content width and never exceed the viewport.
+
+### Buttons and CTAs
+
+Anatomy:
+- Button text must be a descriptive verb phrase.
+- Links that navigate must be `<a>` or framework `Link`; actions that mutate state must be `<button>`.
+
+Variants:
+- Primary CTA must use accent surface and primary text.
+- Secondary CTA must use transparent or outline treatment.
+- Compact submit button may use dark fill for contact form submission when matching the current compact form pattern.
+- Icon-only buttons must use recognizable icon shapes and accessible labels.
+
+States:
+- Default must use tokenized fill, text, border, radius, and spacing.
+- Hover should lift with `--shadow-2` or increase border contrast.
+- Focus-visible must show an outline that meets WCAG visibility expectations.
+- Active must reduce lift and show pressed feedback.
+- Disabled must reduce opacity, remove pointer cursor, and prevent activation.
+- Loading must preserve button width and expose loading text or `aria-busy`.
+- Error must pair the button with a visible error message near the failed action.
+
+Behavior:
+- Keyboard: Enter and Space must activate buttons; Enter must activate links.
+- Pointer: hover feedback must not move surrounding layout.
+- Touch: buttons must be at least 44px high; mobile form submit should span full width.
+- Edge cases: long labels should wrap or use shorter copy, not shrink below readable size.
+
+### Text Links
+
+Anatomy:
+- Links must describe the destination or action.
+- Inline links must be visually distinguishable from surrounding text.
+
+Variants:
+- Primary inline link uses teal-dark text.
+- Inverse inline link uses white text with underline on image overlays.
+- Footer link uses subdued inverse text with accent hover.
+
+States:
+- Default must meet contrast requirements.
+- Hover should change color or underline.
+- Focus-visible must show visible outline.
+- Active must maintain accessible contrast.
+- Disabled links must render as text, not inert anchors.
+- Loading links must avoid navigation until destination is known.
+- Error links must point to a valid fallback destination or be removed.
+
+Behavior:
+- Keyboard: all links must be reachable in logical reading order.
+- Pointer: hit area should include enough vertical padding in nav and footer lists.
+- Touch: links in dense areas should have line-height at least 1.7.
+- Edge cases: email, phone, and external links must keep full readable labels.
+
+### Product Cards and Stat Cards
+
+Anatomy:
+- Cards must include media or metric, category/meta text, title, and concise body copy.
+- Product card images must use meaningful alt text.
+
+Variants:
+- Product card: image bed plus text block.
+- Stat card: metric, heading, explanation.
+- Related-product card: denser content and smaller text.
+
+States:
+- Default must use `--white` surface, `--line` border, and square corners.
+- Hover should lift slightly using neutral shadow.
+- Focus-visible must be available when card is clickable.
+- Active must show pressed state when card is a link.
+- Disabled must not appear clickable.
+- Loading must preserve image aspect ratio and card height.
+- Error must show fallback text or placeholder image with accessible label.
+
+Behavior:
+- Keyboard: if the whole card is clickable, it must be a single link with a clear accessible name.
+- Pointer: hover lift must not cause grid reflow.
+- Touch: cards should stack cleanly and maintain readable text.
+- Edge cases: long product names must wrap; product images must use `object-fit: contain`.
+
+### Feature Sections and Media Panels
+
+Anatomy:
+- Feature sections must pair copy with a media panel or full-bleed background.
+- Copy must include eyebrow, heading, and lead body.
+
+Variants:
+- Split feature.
+- Reverse split feature.
+- Full-bleed visual band.
+- Detail band with image and copy.
+
+States:
+- Default must preserve image aspect ratio and copy readability.
+- Hover should only apply to interactive descendants.
+- Focus-visible must be visible for descendant links.
+- Active applies only to descendant controls.
+- Disabled is not applicable unless the section contains controls.
+- Loading must reserve media dimensions.
+- Error must show fallback surface and keep text visible.
+
+Behavior:
+- Keyboard: reading order must match visual order after responsive collapse.
+- Pointer: media-only panels must not imply interactivity unless clickable.
+- Touch: split sections must collapse without overlapping text and imagery.
+- Edge cases: dark overlays must keep text contrast at AA or higher.
+
+### Specification Tables
+
+Anatomy:
+- Use semantic role table or actual table markup for structured specs.
+- Each row must include label and value.
+
+Variants:
+- Compact two-column specification table.
+- Detail page expanded specification table.
+
+States:
+- Default must use `--white` surface, `--line` dividers, and readable row padding.
+- Hover should not be required unless rows are interactive.
+- Focus-visible must apply if rows contain links or controls.
+- Active must apply only to interactive row controls.
+- Disabled rows must be visually subdued and explained.
+- Loading must preserve row rhythm with skeleton rows.
+- Error must show a visible message near the table.
+
+Behavior:
+- Keyboard: interactive content inside tables must follow row order.
+- Pointer: row hover must not be used as the only affordance.
+- Touch: below 620px, rows must stack label over value.
+- Edge cases: long values must wrap, not overflow.
+
+### Forms and Inputs
+
+Anatomy:
+- Forms must use fieldsets and legends for grouped contact information.
+- Required fields must be indicated in text and validated.
+- Labels must be programmatically associated with controls.
+- Help text must sit next to or below the related control.
+
+Variants:
+- Compact inquiry form with contact person, company information, and other fields.
+- Sidebar contact info plus form layout.
+- Single-column mobile form.
+
+States:
+- Default must use light surface, subtle border, compact field rhythm, and tokenized text.
+- Hover should increase input border contrast.
+- Focus-visible must show visible focus ring on inputs, selects, checkboxes, and buttons.
+- Active must show checkbox checked state with accent token.
+- Disabled fields must be visibly muted and excluded from validation.
+- Loading must set `aria-busy` and prevent duplicate submission.
+- Error must show field-specific message and error summary for failed submission.
+
+Behavior:
+- Keyboard: Tab must follow visual order; Space must toggle checkboxes; Enter must submit only when expected.
+- Pointer: clicking a label must focus or toggle its control.
+- Touch: mobile labels and controls must stack to one column; submit must span full width.
+- Edge cases: long checkbox labels must wrap; verification code row must stack on mobile; URL and telephone help text must stay associated with the field.
+
+### FAQ Details
+
+Anatomy:
+- Use native `<details>` and `<summary>` for disclosure.
+- Summary text must be a clear question.
+
+States:
+- Default must show summary only.
+- Hover should show pointer cursor and subtle color emphasis.
+- Focus-visible must show outline on summary.
+- Active/open must reveal answer content with stable spacing.
+- Disabled is not supported for native details; remove unavailable items.
+- Loading must reserve item height or show skeleton summaries.
+- Error must show a short failure message in the FAQ area.
+
+Behavior:
+- Keyboard: Enter and Space must toggle each summary.
+- Pointer: click on summary must toggle only that item.
+- Touch: summary rows must be at least 44px high.
+- Edge cases: answers must remain concise and wrap within the container.
+
+### Footer and Contact Information
+
+Anatomy:
+- Footer must include logo, research-use statement, company name, address, emails, website, and telephone.
+- Contact page must repeat essential contact information beside the form.
+
+States:
+- Default must use dark surface and readable inverse text.
+- Hover should accent links.
+- Focus-visible must be visible on every footer link.
+- Active must maintain contrast.
+- Disabled contact methods must be omitted.
+- Loading must preserve footer structure.
+- Error must not hide legal or contact information.
+
+Behavior:
+- Keyboard: all links must be reachable after main content.
+- Pointer: email, website, and phone links must be clickable.
+- Touch: footer links must have readable spacing.
+- Edge cases: long addresses must wrap without horizontal scroll.
+
+## Accessibility Requirements and Testable Acceptance Criteria
+
+The implementation must target WCAG 2.2 AA.
+
+Pass/fail checks:
+- Text contrast must be at least 4.5:1 for normal text and 3:1 for large text.
+- Non-text focus indicators must be visible against adjacent colors.
+- Every interactive control must be reachable and operable by keyboard.
+- Every image conveying product or workflow information must have descriptive alt text.
+- Decorative images must use empty alt text or be hidden from assistive technology.
+- Forms must expose labels, required state, validation errors, and help text programmatically.
+- Error messages must not rely on color alone.
+- Touch targets must be at least 44px by 44px, except inline text links inside paragraphs.
+- Page zoom at 200% must not cause horizontal scroll for primary content.
+- Mobile viewport at 375px width must not show horizontal overflow.
+- Reduced motion users should not be forced through essential motion; carousel transitions should remain non-blocking.
+- Navigation order must be logical: header, main content, contact actions, footer.
+- The current page must be identifiable through URL, heading, or active nav state.
+
+## Content and Tone Standards
+
+Tone must be concise, confident, and implementation-focused.
+
+Copy rules:
+- Headings must name the product, application, or customer outcome.
+- CTA labels must be specific, such as "Explore Signal-Direct", "View specifications", or "Contact SISBIO".
+- Body copy should use short paragraphs and concrete lab workflow language.
+- Technical claims must be supported by specs or product brochure content.
+- Form labels must be direct: "Company", "Telephone", "Main Product Line".
+- Empty states must tell users what is missing and how to continue.
+
+Examples:
+- Good: "Request product information or consultation."
+- Good: "Compact bench footprint, high-resolution data output."
+- Avoid: "Learn more" without nearby context.
+- Avoid: "Click here" as a standalone action.
+
+## Anti-Patterns and Prohibited Implementations
+
+These rules are non-negotiable:
+- Components must not use raw colors in component-specific CSS when a semantic token exists.
+- Interactive elements must not hide focus indicators.
+- Body copy must not use low-contrast gray on image overlays.
+- Buttons must not shrink below touch target minimums.
+- Cards must not reflow or resize on hover.
+- Product grids must not use arbitrary column counts that create unreadable cards.
+- Long text must not be clipped without a visible expansion or wrapping strategy.
+- Form errors must not be color-only.
+- The header must not contain more primary links than can fit comfortably at desktop width.
+- Hero copy must not sit in a card over split media; hero text should sit directly over or beside the immersive visual treatment.
+- Decorative gradients, blobs, or ornamental shapes should not replace product, lab, or workflow imagery.
+- New one-off spacing values should not be introduced unless first added to the token scale.
+
+Migration notes:
+- Existing raw values in `app/globals.css` should be promoted to semantic aliases when touched.
+- Existing corrupted text encodings in legacy documentation must be cleaned when content is edited.
+- Contact form compact styling should remain compatible with the current image-reference layout but must keep the site's teal and neutral palette.
+- Arise reference guidance should inform structure and tone, but SISBIO product content must remain the source of truth for this project.
+
+## Edge-Case Handling
+
+Long content:
+- Headings should wrap within `min(760px, 100%)`.
+- Product descriptions should clamp only when a clear route to detail content exists.
+- Email and URL links should wrap with normal line breaks.
+
+Overflow:
+- All major sections must set `min-width: 0` on grid children when text can wrap.
+- Tables must stack rows on narrow screens.
+- Form verification rows must collapse to a single column on mobile.
+
+Empty states:
+- Missing product images must show a soft placeholder with descriptive text.
+- Empty product arrays must show a short message and a contact CTA.
+- Empty FAQ lists must be hidden or replaced by a support CTA.
+
+Loading:
+- Hero images must reserve space before image load.
+- Cards must preserve aspect ratio during loading.
+- Form submission must prevent duplicate submits and expose status with `aria-live`.
+
+Errors:
+- Failed image loads must not break layout.
+- Failed form submission must show an error summary and preserve user input.
+- Invalid fields must identify the field and required correction.
+
+## QA Checklist
+
+Before shipping a page or component:
+- Confirm all component colors use semantic tokens or approved aliases.
+- Confirm every interactive component has default, hover, focus-visible, active, disabled, loading, and error states.
+- Confirm keyboard navigation reaches all controls in logical order.
+- Confirm focus-visible is clear on dark hero, light cards, forms, and footer.
+- Confirm text contrast passes WCAG 2.2 AA.
+- Confirm desktop, tablet, and mobile layouts have no horizontal overflow.
+- Confirm images have correct alt text and stable dimensions.
+- Confirm cards do not shift surrounding layout on hover.
+- Confirm forms expose labels, help text, required state, and errors accessibly.
+- Confirm footer and contact page include the same essential company contact information.
+- Confirm CTA labels are descriptive and destination-specific.
+- Confirm page density remains consistent with the marketing surface: link-heavy navigation and footer, limited buttons, structured lists, and two navigation surfaces.
+- Confirm implementation prefers existing CSS patterns before adding new abstractions.
