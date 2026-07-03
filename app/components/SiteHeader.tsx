@@ -76,7 +76,6 @@ export default function SiteHeader({
         {t("common.inquireNow")}
       </Link>
       <label className="language-select desktop-language">
-        <span>{t("common.language")}</span>
         <select
           value={locale}
           onChange={(event) => setLocale(event.target.value as typeof locale)}
@@ -118,7 +117,6 @@ export default function SiteHeader({
           )
         )}
         <label className="language-select mobile-language">
-          <span>{t("common.language")}</span>
           <select
             value={locale}
             onChange={(event) => setLocale(event.target.value as typeof locale)}
