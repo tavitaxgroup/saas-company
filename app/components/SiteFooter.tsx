@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useI18n } from "../i18n";
 
 const contactLinks = [
   { label: "sales@sisbio.com.tw", href: "mailto:sales@sisbio.com.tw" },
@@ -11,19 +14,21 @@ type SiteFooterProps = {
 };
 
 export default function SiteFooter({
-  note = "High-sensitivity imaging solutions and bioproduction media & feed products for research use. Not for use in diagnostic procedures."
+  note
 }: SiteFooterProps) {
+  const { t } = useI18n();
+
   return (
     <footer className="footer">
       <div>
         <Image src="/assets/logo-sisbio.webp" alt="SISBIO" width={100} height={70} />
-        <p>{note}</p>
+        <p>{note ?? t("footer.note")}</p>
       </div>
       <address>
-        <strong>SisBio Limited</strong>
-        <span>4 F., No. 12, Ln. 345, Yangguang St., Neihu Dist.</span>
-        <span>Taipei City 114713, Taiwan (R.O.C.)</span>
-        <span>Postal code 114713</span>
+        <strong>{t("footer.company")}</strong>
+        <span>{t("footer.address1")}</span>
+        <span>{t("footer.address2")}</span>
+        <span>{t("footer.postal")}</span>
         {contactLinks.map((item) => (
           <a href={item.href} key={item.href}>
             {item.label}

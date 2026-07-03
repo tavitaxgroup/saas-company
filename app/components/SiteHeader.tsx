@@ -3,9 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { languageOptions, useI18n } from "../i18n";
 
 type NavItem = {
-  label: string;
+  key: string;
   href: string;
   children?: NavItem[];
 };
@@ -23,6 +24,7 @@ export default function SiteHeader({
 }: SiteHeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState("");
+  const { locale, setLocale, t } = useI18n();
 
   const closeMenu = () => {
     setIsOpen(false);
@@ -53,26 +55,40 @@ export default function SiteHeader({
                   setOpenDropdown((current) => (current === item.href ? "" : item.href))
                 }
               >
-                {item.label}
+                {t(`nav.${item.key}`)}
               </button>
               <div className={`nav-dropdown-menu ${openDropdown === item.href ? "is-open" : ""}`}>
                 {item.children.map((child) => (
                   <Link key={child.href} href={child.href} onClick={() => setOpenDropdown("")}>
-                    {child.label}
+                    {t(`nav.${child.key}`)}
                   </Link>
                 ))}
               </div>
             </div>
           ) : (
             <Link key={item.href} href={item.href}>
-              {item.label}
+              {t(`nav.${item.key}`)}
             </Link>
           )
         )}
       </nav>
       <Link className="header-cta" href={ctaHref}>
-        Inquire Now
+        {t("common.inquireNow")}
       </Link>
+      <label className="language-select desktop-language">
+        <span>{t("common.language")}</span>
+        <select
+          value={locale}
+          onChange={(event) => setLocale(event.target.value as typeof locale)}
+          aria-label={t("common.language")}
+        >
+          {languageOptions.map((option) => (
+            <option key={option.code} value={option.code}>
+              {option.shortLabel}
+            </option>
+          ))}
+        </select>
+      </label>
       <button
         className={`menu-toggle ${isOpen ? "is-open" : ""}`}
         type="button"
@@ -88,21 +104,35 @@ export default function SiteHeader({
         {navItems.map((item) =>
           item.children ? (
             <div className="mobile-nav-group" key={item.href}>
-              <span>{item.label}</span>
+              <span>{t(`nav.${item.key}`)}</span>
               {item.children.map((child) => (
                 <Link key={child.href} href={child.href} onClick={closeMenu}>
-                  {child.label}
+                  {t(`nav.${child.key}`)}
                 </Link>
               ))}
             </div>
           ) : (
             <Link key={item.href} href={item.href} onClick={closeMenu}>
-              {item.label}
+              {t(`nav.${item.key}`)}
             </Link>
           )
         )}
+        <label className="language-select mobile-language">
+          <span>{t("common.language")}</span>
+          <select
+            value={locale}
+            onChange={(event) => setLocale(event.target.value as typeof locale)}
+            aria-label={t("common.language")}
+          >
+            {languageOptions.map((option) => (
+              <option key={option.code} value={option.code}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </label>
         <Link className="mobile-nav-cta" href={ctaHref} onClick={closeMenu}>
-          Inquire Now
+          {t("common.inquireNow")}
         </Link>
       </nav>
     </header>

@@ -79,7 +79,7 @@ img {
   inset: 0 0 auto 0;
   z-index: 20;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto auto;
   align-items: center;
   gap: 20px;
   min-height: 78px;
@@ -320,6 +320,41 @@ img {
   min-height: 44px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   color: var(--white);
+}
+
+.language-select {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.language-select select {
+  min-height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--white);
+  font: inherit;
+  padding: 0 28px 0 12px;
+  cursor: pointer;
+}
+
+.language-select select option {
+  background: var(--black);
+  color: var(--white);
+}
+
+.language-select select:hover,
+.language-select select:focus-visible {
+  border-color: var(--teal);
+  outline: 2px solid transparent;
+}
+
+.mobile-language {
+  display: none;
 }
 
 .primary-button {
@@ -1450,6 +1485,22 @@ h3 {
   .header-cta {
     grid-column: 3;
     justify-self: end;
+  }
+
+  .desktop-language {
+    display: none;
+  }
+
+  .mobile-language {
+    display: flex;
+    justify-content: space-between;
+    min-height: 48px;
+    padding: 12px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .mobile-language select {
+    min-width: 140px;
   }
 
   .menu-toggle {

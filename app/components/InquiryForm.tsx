@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useI18n } from "../i18n";
 
 const inquiryRecipient = "sales@sisbio.com.tw";
 
@@ -18,6 +19,7 @@ const businessTypes = [
 export default function InquiryForm() {
   const [status, setStatus] = useState("");
   const [verificationCodeImage, setVerificationCodeImage] = useState(verificationCodes[0]);
+  const { t } = useI18n();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -43,7 +45,7 @@ export default function InquiryForm() {
     const selectedBusinessTypes = formData.getAll("businessType").join(", ");
 
     if (verificationCode.trim().toUpperCase() !== verificationCodeImage) {
-      setStatus("Please enter the verification code shown in the image.");
+      setStatus(t("form.invalidCode"));
       return;
     }
 
@@ -80,7 +82,7 @@ export default function InquiryForm() {
       ].join("\n")
     );
 
-    setStatus("Opening email client for submission.");
+    setStatus(t("form.openingEmail"));
     window.location.href = `mailto:${inquiryRecipient}?subject=${emailSubject}&body=${body}`;
   };
 
@@ -94,71 +96,71 @@ export default function InquiryForm() {
   return (
     <form className="inquiry-form" onSubmit={handleSubmit}>
       <fieldset className="form-section">
-        <legend>Information of Contact Person</legend>
+        <legend>{t("form.contactLegend")}</legend>
         <label className="compact-field">
           <span>
-            Name <strong>*</strong>
+            {t("form.name")} <strong>*</strong>
           </span>
           <input name="firstName" type="text" autoComplete="given-name" required />
         </label>
         <label className="compact-field">
           <span>
-            Last name <strong>*</strong>
+            {t("form.lastName")} <strong>*</strong>
           </span>
           <input name="lastName" type="text" autoComplete="family-name" required />
         </label>
         <label className="compact-field">
           <span>
-            E-Mail <strong>*</strong>
+            {t("form.email")} <strong>*</strong>
           </span>
           <input name="email" type="email" autoComplete="email" required />
         </label>
         <label className="compact-field">
-          <span>Department</span>
+          <span>{t("form.department")}</span>
           <input name="department" type="text" autoComplete="organization-title" />
         </label>
         <label className="compact-field">
-          <span>Job Title</span>
+          <span>{t("form.jobTitle")}</span>
           <input name="jobTitle" type="text" />
         </label>
         <label className="compact-field checkbox-field">
-          <span>ePaper</span>
+          <span>{t("form.ePaper")}</span>
           <span className="inline-check">
             <input name="ePaper" type="checkbox" />
-            Please mail me detail information of products, services and news of events.
+            {t("form.ePaperText")}
           </span>
         </label>
       </fieldset>
 
       <fieldset className="form-section">
-        <legend>Company Information</legend>
+        <legend>{t("form.companyLegend")}</legend>
         <label className="compact-field">
           <span>
-            Company <strong>*</strong>
+            {t("form.company")} <strong>*</strong>
           </span>
           <input name="company" type="text" autoComplete="organization" required />
         </label>
         <label className="compact-field with-note">
           <span>
-            URL <strong>*</strong>
+            {t("form.url")} <strong>*</strong>
           </span>
           <input name="url" type="url" required />
-          <small>( Including http:// )</small>
+          <small>{t("form.urlNote")}</small>
         </label>
         <label className="compact-field">
-          <span>Address</span>
+          <span>{t("form.address")}</span>
           <input name="address" type="text" autoComplete="street-address" />
         </label>
         <label className="compact-field">
-          <span>Postal Code</span>
+          <span>{t("form.postal")}</span>
           <input name="postalCode" type="text" autoComplete="postal-code" />
         </label>
         <label className="compact-field">
-          <span>State</span>
+          <span>{t("form.state")}</span>
           <input name="state" type="text" autoComplete="address-level1" />
         </label>
         <label className="compact-field">
-          <span>Country</span>
+          <span>{t("form.country")}</span>
           <select name="country" defaultValue="Vietnam" autoComplete="country-name">
             <option>Vietnam</option>
             <option>Taiwan</option>
@@ -173,29 +175,29 @@ export default function InquiryForm() {
         </label>
         <label className="compact-field with-note">
           <span>
-            Telephone <strong>*</strong>
+            {t("form.telephone")} <strong>*</strong>
           </span>
           <input name="telephone" type="tel" autoComplete="tel" required />
-          <small>(Please enter full telephone number, including Country code, Area code.)</small>
+          <small>{t("form.phoneNote")}</small>
         </label>
         <label className="compact-field with-note">
-          <span>Fax</span>
+          <span>{t("form.fax")}</span>
           <input name="fax" type="tel" />
-          <small>(Please enter full telephone number, including Country code, Area code.)</small>
+          <small>{t("form.phoneNote")}</small>
         </label>
         <label className="compact-field">
-          <span>Main Product Line</span>
+          <span>{t("form.productLine")}</span>
           <input name="productLine" type="text" />
         </label>
       </fieldset>
 
       <fieldset className="form-section">
-        <legend>Others</legend>
+        <legend>{t("form.othersLegend")}</legend>
         <label className="compact-field">
-          <span>Subjects</span>
+          <span>{t("form.subjects")}</span>
           <select name="subject" defaultValue="">
             <option value="" disabled>
-              --Please select--
+              {t("form.select")}
             </option>
             <option>Signal-Direct Imager</option>
             <option>Max-One Software</option>
@@ -206,7 +208,7 @@ export default function InquiryForm() {
           </select>
         </label>
         <div className="compact-field business-field">
-          <span>Business Type</span>
+          <span>{t("form.businessType")}</span>
           <div className="check-grid">
             {businessTypes.map((type) => (
               <label key={type} className="inline-check">
@@ -218,25 +220,24 @@ export default function InquiryForm() {
         </div>
         <label className="compact-field verification-field">
           <span>
-            Verification code <strong>*</strong>
+            {t("form.verification")} <strong>*</strong>
           </span>
           <input name="verificationCode" type="text" required />
           <em aria-label={`Verification code image ${verificationCodeImage}`}>
             {verificationCodeImage}
           </em>
           <button type="button" onClick={changeVerificationCode}>
-            Change Image
+            {t("form.changeImage")}
           </button>
         </label>
       </fieldset>
 
       <p className="privacy-note">
-        By submitting your contact information, you acknowledge that you consent to our
-        processing data in accordance with the Privacy and Cookie Policy.
+        {t("form.privacy")}
       </p>
       <div className="form-submit-row">
         <button className="primary-button compact-submit" type="submit">
-          Submit
+          {t("form.submit")}
         </button>
       </div>
       <p className="form-status" aria-live="polite">

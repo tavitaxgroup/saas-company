@@ -1,37 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
+import { splitRecord, useI18n } from "../i18n";
 import navItems from "../navigation";
 
-const maxOneFeatures = [
-  "Dynamic capture technology automatically applies optimal settings.",
-  "Signal intensity management helps prevent saturation as much as possible.",
-  "Automatic processing brings out maximum contrast and dynamic range.",
-  "Instant data analysis supports deeper review in Max-One software."
-];
-
-const workflowPoints = [
-  {
-    label: "Capture",
-    title: "Acquire images with guided exposure",
-    text:
-      "Auto and custom exposure workflows help labs document chemiluminescence signals consistently."
-  },
-  {
-    label: "Process",
-    title: "Bring out contrast and clarity",
-    text:
-      "Processing tools support clearer images while preserving the quantitative signal needed for review."
-  },
-  {
-    label: "Analyze",
-    title: "Move toward final documentation",
-    text:
-      "Max-One supports deeper quantitative review and image export for publication and lab records."
-  }
-];
-
 export default function SoftwarePage() {
+  const { list, t } = useI18n();
+  const maxOneFeatures = list("software.features");
+  const workflowPoints = list("software.workflow").map(splitRecord);
+
   return (
     <main>
       <SiteHeader navItems={navItems} ctaHref="/contact" />
@@ -47,12 +26,9 @@ export default function SoftwarePage() {
         />
         <div className="detail-hero-overlay" />
         <div className="detail-hero-content">
-          <p className="eyebrow">Max-One Software</p>
-          <h1>One platform from image capture to final results.</h1>
-          <p>
-            Max-One supports dynamic capture, image processing, quantitative review, and
-            documentation for Signal-Direct imaging workflows.
-          </p>
+          <p className="eyebrow">{t("software.heroEyebrow")}</p>
+          <h1>{t("software.heroTitle")}</h1>
+          <p>{t("software.heroCopy")}</p>
         </div>
       </section>
 
@@ -68,12 +44,9 @@ export default function SoftwarePage() {
 
       <section className="detail-band reverse">
         <div className="detail-band-copy">
-          <p className="eyebrow teal">Streamline Documentation</p>
-          <h2>Capture, process, analyze, and document in one focused workflow.</h2>
-          <p>
-            The software workflow is designed to reduce repeat capture work and help
-            multi-user labs generate consistent quantitative records.
-          </p>
+          <p className="eyebrow teal">{t("software.docEyebrow")}</p>
+          <h2>{t("software.docTitle")}</h2>
+          <p>{t("software.docCopy")}</p>
           <div className="feature-list">
             {maxOneFeatures.map((feature) => (
               <span key={feature}>{feature}</span>
@@ -93,11 +66,11 @@ export default function SoftwarePage() {
 
       <section className="section cta-band">
         <div>
-          <p className="eyebrow teal">Software Inquiry</p>
-          <h2>Need Max-One software details or product documentation?</h2>
+          <p className="eyebrow teal">{t("software.ctaEyebrow")}</p>
+          <h2>{t("software.ctaTitle")}</h2>
         </div>
         <a className="primary-button" href="/contact">
-          Request details
+          {t("software.ctaButton")}
         </a>
       </section>
 

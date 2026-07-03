@@ -1,18 +1,18 @@
 const navItems = [
-  { label: "Home", href: "/" },
+  { key: "home", href: "/" },
   {
-    label: "Products",
+    key: "products",
     href: "/signal-direct-imager",
     children: [
-      { label: "Signal-Direct Imager", href: "/signal-direct-imager" },
-      { label: "Bioproduction Media & Feed", href: "/bioproduction" }
+      { key: "signalDirect", href: "/signal-direct-imager" },
+      { key: "bioproduction", href: "/bioproduction" }
     ]
   },
-  { label: "Technology", href: "/technology" },
-  { label: "Software", href: "/software" },
-  { label: "Specifications", href: "/specifications" },
-  { label: "Support", href: "/support" },
-  { label: "Contact Us", href: "/contact" }
+  { key: "technology", href: "/technology" },
+  { key: "software", href: "/software" },
+  { key: "specifications", href: "/specifications" },
+  { key: "support", href: "/support" },
+  { key: "contact", href: "/contact" }
 ];
 
 export default navItems;

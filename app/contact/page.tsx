@@ -1,11 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import InquiryForm from "../components/InquiryForm";
 import SiteFooter, { contactLinks } from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
+import { useI18n } from "../i18n";
 import navItems from "../navigation";
 
 export default function ContactPage() {
+  const { t } = useI18n();
+
   return (
     <main>
       <SiteHeader navItems={navItems} ctaHref="/contact" />
@@ -21,23 +26,20 @@ export default function ContactPage() {
         />
         <div className="contact-hero-overlay" />
         <div className="contact-hero-content">
-          <p className="eyebrow">Contact SISBIO</p>
-          <h1>Send product inquiries and distributor requests.</h1>
-          <p>
-            Share your contact and company information so SISBIO can prepare product
-            documentation, consultation, quotation, or partnership follow-up.
-          </p>
+          <p className="eyebrow">{t("contact.heroEyebrow")}</p>
+          <h1>{t("contact.heroTitle")}</h1>
+          <p>{t("contact.heroCopy")}</p>
         </div>
       </section>
 
       <section className="section contact-page-layout">
         <aside className="contact-info-panel">
-          <p className="eyebrow teal">Contact Information</p>
-          <h2>SisBio Limited</h2>
+          <p className="eyebrow teal">{t("contact.infoEyebrow")}</p>
+          <h2>{t("footer.company")}</h2>
           <div className="contact-address">
-            <span>4 F., No. 12, Ln. 345, Yangguang St., Neihu Dist.</span>
-            <span>Taipei City 114713, Taiwan (R.O.C.)</span>
-            <span>Postal code 114713</span>
+            <span>{t("footer.address1")}</span>
+            <span>{t("footer.address2")}</span>
+            <span>{t("footer.postal")}</span>
           </div>
           <div className="contact-link-list">
             {contactLinks.map((item) => (
@@ -47,7 +49,7 @@ export default function ContactPage() {
             ))}
           </div>
           <Link className="text-link" href="/">
-            Back to SISBIO overview
+            {t("common.backHome")}
           </Link>
         </aside>
 

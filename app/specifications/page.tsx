@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import SiteFooter from "../components/SiteFooter";
 import SiteHeader from "../components/SiteHeader";
+import { useI18n } from "../i18n";
 import navItems from "../navigation";
 
 const detailedSpecs = [
@@ -21,6 +24,8 @@ const detailedSpecs = [
 ];
 
 export default function SpecificationsPage() {
+  const { t } = useI18n();
+
   return (
     <main>
       <SiteHeader navItems={navItems} ctaHref="/contact" />
@@ -36,23 +41,17 @@ export default function SpecificationsPage() {
         />
         <div className="detail-hero-overlay" />
         <div className="detail-hero-content">
-          <p className="eyebrow">Technical Specifications</p>
-          <h1>Signal-Direct Imager system reference.</h1>
-          <p>
-            Review sensor performance, imaging area, data formats, power, operating
-            conditions, dimensions, and software connection requirements.
-          </p>
+          <p className="eyebrow">{t("spec.heroEyebrow")}</p>
+          <h1>{t("spec.heroTitle")}</h1>
+          <p>{t("spec.heroCopy")}</p>
         </div>
       </section>
 
       <section className="section specs-layout">
         <div>
-          <p className="eyebrow teal">Specification Table</p>
-          <h2>Compact bench footprint, high-resolution data output.</h2>
-          <p className="lead">
-            Specifications are organized for product evaluation, quotation requests, and
-            technical consultation with SISBIO.
-          </p>
+          <p className="eyebrow teal">{t("spec.tableEyebrow")}</p>
+          <h2>{t("spec.tableTitle")}</h2>
+          <p className="lead">{t("spec.tableLead")}</p>
           <div className="spec-image">
             <Image
               src="/assets/signal-direct-imager.webp"
@@ -74,11 +73,11 @@ export default function SpecificationsPage() {
 
       <section className="section cta-band">
         <div>
-          <p className="eyebrow teal">Evaluation Support</p>
-          <h2>Need brochure review or quotation preparation?</h2>
+          <p className="eyebrow teal">{t("spec.ctaEyebrow")}</p>
+          <h2>{t("spec.ctaTitle")}</h2>
         </div>
         <a className="primary-button" href="/contact">
-          Contact SISBIO
+          {t("common.contactSisbio")}
         </a>
       </section>
 
